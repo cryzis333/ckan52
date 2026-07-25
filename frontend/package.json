@@ -1,0 +1,8 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "npx --yes http-server . -p 5173 -c-1"
+  }
+}
