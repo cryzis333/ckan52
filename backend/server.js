@@ -8,6 +8,9 @@ import cron from "node-cron";
 import FormData from "form-data";
 import nodemailer from "nodemailer";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -19,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET || "";
 
 // Serve frontend static files and add simple routes/redirects
-const frontendDir = "/var/www/serious-company/frontend";
+const frontendDir = process.env.FRONTEND_DIR || path.join(__dirname, "../frontend");
 app.use(express.static(frontendDir));
 
 // Root serves index.html
